@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Embarcacoes } from '../model/embarcacoes';
+import { Embarcacao } from '../model/embarcacao';
 import { EmbarcacoesService } from '../services/embarcacoes.service';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
+
 
 @Component({
   selector: 'app-embarcacoes',
@@ -14,14 +15,24 @@ export class EmbarcacoesComponent   implements OnInit {
     throw new Error('Method not implemented.');
   }
 
+  embarcacao  : Observable<Embarcacao[]>;
+  displayedColumns = [ 'id', 'nm_embarc', 'tipo', 'nr_marina', 'dh_registro', 'id_situacao' ];
 
-  embarcacoes$ : Observable<Embarcacoes[]>;
-  displayedColumns = ['name', 'category'];
+  constructor(private embarcacaoService: EmbarcacoesService ){
+    this.embarcacao = this.embarcacaoService.list()
+    .pipe(
+      catchError(error => {
+        console.log()
+        return of([])
+      })
+    );
 
 
-  constructor(private embarcacoesService: EmbarcacoesService){
-    this.embarcacoes$ = this.embarcacoesService.list();
 
   }
 
+
 }
+
+
+
