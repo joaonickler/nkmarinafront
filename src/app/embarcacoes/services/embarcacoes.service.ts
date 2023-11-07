@@ -1,22 +1,24 @@
-import { Embarcacoes } from './../model/embarcacoes';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-
+import { Embarcacao } from '../model/embarcacao';
+import { first, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmbarcacoesService {
 
-  private readonly API = 'assets/embarcacoes.json'
+  constructor(private HttpClient:HttpClient  ) { }
 
-  constructor(private httpClient: HttpClient) { }
-
+   private readonly API = 'assets/embarcacao.json'
 
   list() {
-       return this.httpClient.get<Embarcacoes[]>(this.API)
-
+    return this.HttpClient.get<Embarcacao[]>(this.API)
+    .pipe(
+      first(),
+      tap(embarcacao=>console.log(embarcacao))
+    );
   }
 
 }
