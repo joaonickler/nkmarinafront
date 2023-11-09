@@ -6,6 +6,7 @@ export interface Embarcacao {
     id_situacao : String;
     tipo: String;
 
+
 }
 
 
