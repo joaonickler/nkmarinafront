@@ -11,7 +11,8 @@ export class EmbarcacoesService {
 
   constructor(private HttpClient:HttpClient  ) { }
 
-   private readonly API = 'assets/embarcacao.json'
+   ///private readonly API = 'assets/embarcacao.json'
+   private readonly API = 'api/embarcacoes'
 
   list() {
     return this.HttpClient.get<Embarcacao[]>(this.API)
@@ -20,5 +21,11 @@ export class EmbarcacoesService {
       tap(embarcacao=>console.log(embarcacao))
     );
   }
+
+  save(record: Embarcacao){
+    return this.HttpClient.post<Embarcacao>(this.API,  record);
+
+  }
+
 
 }
