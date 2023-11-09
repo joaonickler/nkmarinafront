@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, Observable, of } from 'rxjs';
+
 import { Embarcacao } from '../model/embarcacao';
 import { EmbarcacoesService } from '../services/embarcacoes.service';
-import { Observable, catchError, of } from 'rxjs';
 
 
 @Component({
@@ -16,10 +18,12 @@ export class EmbarcacoesComponent   implements OnInit {
   }
 
   embarcacao  : Observable<Embarcacao[]>;
-  displayedColumns = [ 'id', 'nm_embarc', 'tipo', 'nr_marina', 'dh_registro', 'id_situacao' ];
+  displayedColumns = [ 'id', 'nm_embarc', 'tipo', 'nr_marina', 'dh_registro', 'id_situacao', 'actions' ];
 
-  constructor(private embarcacaoService: EmbarcacoesService ){
-    this.embarcacao = this.embarcacaoService.list()
+  constructor(private embarcacaoService: EmbarcacoesService,
+              private router: Router,
+              private route: ActivatedRoute ){
+      this.embarcacao = this.embarcacaoService.list()
     .pipe(
       catchError(error => {
         console.log()
@@ -30,6 +34,11 @@ export class EmbarcacoesComponent   implements OnInit {
 
 
   }
+
+  onAdd(){
+    this.router.navigate(['new'], { relativeTo: this.route} );
+  }
+
 
 
 }
