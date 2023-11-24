@@ -1,0 +1,30 @@
+<div class="menu-container"  >
+<button  mat-button [matMenuTriggerFor]="aboveMenu1"   >Cadastros</button>
+<mat-menu #aboveMenu1="matMenu" class="custom-menu"  >
+  <button mat-menu-item  (click)="navigateToRoute()" >Clientes</button>
+  <button mat-menu-item  (click)="navigateToRoute()"  >Usuarios</button>
+
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="aboveMenu2">Agenda</button>
+<mat-menu #aboveMenu2="matMenu" class="custom-menu" >
+  <button mat-menu-item (click)="navigateToRoute()"  >Definir</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="aboveMenu3">Relatórios</button>
+<mat-menu #aboveMenu3="matMenu"  class="custom-menu"  >
+  <button mat-menu-item (click)="navigateToRoute()"  >Agendas</button>
+  <button mat-menu-item (click)="navigateToRoute()"  >Custos</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="aboveMenu4">Info</button>
+<mat-menu #aboveMenu4="matMenu"  class="custom-menu"  >
+  <button mat-menu-item (click)="navigateToRoute()"  >Ajuda</button>
+  <button mat-menu-item (click)="navigateToRoute()"  >Sobre</button>
+  <button mat-menu-item (click)="navigateToRoute()"  >Sair</button>
+</mat-menu>
+
+</div>
+
+
+
