@@ -11,7 +11,6 @@ export class EmbarcacoesService {
 
   constructor(private HttpClient:HttpClient  ) { }
 
-   ///private readonly API = 'assets/embarcacao.json'
    private readonly API = 'api/embarcacoes'
 
   list() {
@@ -26,37 +25,27 @@ export class EmbarcacoesService {
   {
     console.log(record);
     ///return this.HttpClient.post<Embarcacao>(this.API,  record);
-    if (record.id) {
-      console.log('ALTERACAO');
+    if (record.id_embarc) {
       return this.update(record);
     }
-      console.log('CRIACAO');
       return this.create(record);
-
   }
 
-  // Localiza por ID
-  loadById(id: String ){
-    return this.HttpClient.get<Embarcacao>(`${this.API}/${id}`);
+  loadById(id_embarc: String ){
+    return this.HttpClient.get<Embarcacao>(`${this.API}/${id_embarc}`);
   }
 
-  // Cria um novo
   private create(record: Partial<Embarcacao>){
     return this.HttpClient.post<Embarcacao>(this.API,  record);
   }
 
-  // Altera um existente
   private update(record: Partial<Embarcacao>){
      return this.HttpClient.post<Embarcacao>(this.API,  record);
     }
 
-  private delete(id:String){
-    return this.HttpClient.delete<Embarcacao>(`${this.API}/${id}`);
-  }
-
+  remove(id_embarc: string){
+    return this.HttpClient.delete(`${this.API}/${id_embarc}`);
+   }
 
 }
 
-
-
-////return this.HttpClient.put<Embarcacao>(`${this.API}/${record.id}`,record);

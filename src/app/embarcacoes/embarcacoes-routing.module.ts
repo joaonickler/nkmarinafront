@@ -9,7 +9,7 @@ import { embarcacaoResolver } from './guards/embarcacao.resolver';
 const routes: Routes = [
   {path :'', component: EmbarcacoesComponent},
   {path :'new', component: EmbarcacoesFormComponent},
-  {path :'edit/:id', component: EmbarcacoesFormComponent, resolve: {embar:embarcacaoResolver}}
+  {path :'edit/:id_embarc', component: EmbarcacoesFormComponent, resolve: {embar:embarcacaoResolver}}
   ///{path :'delete/:id', component:  EmbarcacoesFormComponent, resolve: {embar:embarcacaoResolver}}
 ];
 

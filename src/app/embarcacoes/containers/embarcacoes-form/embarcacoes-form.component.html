@@ -8,10 +8,17 @@
         <input matInput placeholder="Nome Embarcação" formControlName="nm_embarc">
       </mat-form-field>
 
+      <mat-form-field class="full-width" >
+        <input matInput placeholder="Reg Marinha" formControlName="nrmarinha_embarc">
+      </mat-form-field>
+
+      <mat-form-field class="full-width" >
+        <input matInput placeholder="Cliente" formControlName="cliente_id">
+      </mat-form-field>
 
       <mat-form-field class="full-width" >
         <mat-label>Tipo</mat-label>
-        <mat-select formControlName="tipo" >
+        <mat-select formControlName="tipo_embarc" >
           <mat-option value="null"> </mat-option>
           <mat-option value="1">Barco</mat-option>
           <mat-option value="2">Navio</mat-option>
@@ -23,23 +30,12 @@
       </mat-form-field>
 
 
-
-      <mat-form-field class="full-width" >
-        <mat-label>Situação</mat-label>
-        <mat-select formControlName="id_situacao" >
-          <mat-option value="null"> </mat-option>
-          <mat-option value="A">Ativo</mat-option>
-          <mat-option value="I">Inativo</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-
     </form>
   </mat-card-content>
 
   <mat-card-actions >
-    <button  mat-raised-button color="primary" (click)="onSubmit()" >Salvar</button>
-    <button  mat-raised-button   (click)="onCancel()"  >Cancelar</button>
+    <button  mat-raised-button color="primary" (click)="onSubmit()"   matTooltip="Pressione para Salvar"    >Salvar</button>
+    <button  mat-raised-button   (click)="onCancel()"     matTooltip="Pressione para Cancelar"    >Cancelar</button>
   </mat-card-actions>
 
 

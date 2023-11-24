@@ -16,9 +16,9 @@ export class embarcacaoResolver implements Resolve<Embarcacao> {
   resolve (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Embarcacao>
   {
     if (route.params) {
-            return this.service.loadById(route.params['id']);
+            return this.service.loadById(route.params['id_embarc']);
     }
-  return of(...arguments,{id:'', nm_embarc:'',  tipo:'', id_situacao:''});
+  return of(...arguments,{id_embarc:'', nm_embarc:'',  tipo_embarc:'',  nrmarinha_embarc:'', cliente_id:''});
 
   }
 

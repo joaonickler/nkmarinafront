@@ -7,7 +7,7 @@
   [embarcacao]="embarcacao"
   (add)="onAdd()"
   (edit)="onEdit($event)"
-  (delete)="onDelete($event)"
+  (remove)="onRemove($event)"
 
   ></app-embarcacoes-list>
 
@@ -21,7 +21,7 @@
 
 <mat-paginator [length]="100"
               [pageSize]="10"
-              [pageSizeOptions]="[5, 10, 25, 100]"
+              [pageSizeOptions]="[5, 10, 20]"
               aria-label="Selecione Página">
 </mat-paginator>
 </mat-card>

@@ -1,9 +1,9 @@
 export interface Embarcacao {
-    id:String;
-    id_situacao:String;
-    nm_embarc:String;
-    tipo:String;
-
+    id_embarc:string;
+    nm_embarc:string;
+    tipo_embarc:string;
+    nrmarinha_embarc:string;
+    cliente_id:string;
 
 }
 

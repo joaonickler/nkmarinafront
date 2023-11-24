@@ -24,7 +24,7 @@ export class EmbarcacoesFormComponent {
               private route:ActivatedRoute )
   {
               this.form = this.formBuilder.group(
-                  { id: [''], nm_embarc:[''], tipo:[null],id_situacao:['']});
+                  { id_embarc: [''], nm_embarc:[null], tipo_embarc:[null],  nrmarinha_embarc:[null], cliente_id:[null]   });
   }
 
   ngOnInit():void {
@@ -32,10 +32,11 @@ export class EmbarcacoesFormComponent {
     console.log(embarc);
     this.form.setValue(
       {
-        id: embarc.id,
+        id_embarc: embarc.id_embarc,
         nm_embarc: embarc.nm_embarc,
-        tipo: embarc.tipo,
-        id_situacao: embarc.id_situacao
+        tipo_embarc: embarc.tipo_embarc,
+        nrmarinha_embarc: embarc.nrmarinha_embarc,
+        cliente_id: embarc.cliente_id
       });
 
   }

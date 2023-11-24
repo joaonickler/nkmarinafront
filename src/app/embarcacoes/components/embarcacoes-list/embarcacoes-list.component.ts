@@ -13,9 +13,9 @@ export class EmbarcacoesListComponent {
   @Input() embarcacao: Embarcacao[] = [];
   @Output() add = new EventEmitter(false);
   @Output() edit = new EventEmitter(false);
-  @Output() delete = new EventEmitter(false);
+  @Output() remove = new EventEmitter(false);
 
-  readonly displayedColumns = [ 'id','nm_embarc', 'tipo','id_situacao', 'actions' ];
+  readonly displayedColumns = [ 'id_embarc','nm_embarc', 'nrmarinha_embarc', 'tipo_embarc','cliente_id','actions' ];
 
   constructor(){ }
 
@@ -32,7 +32,7 @@ export class EmbarcacoesListComponent {
   }
 
   onDelete(embarcacao: Embarcacao){
-    this.delete.emit(embarcacao);
+   this.remove.emit(embarcacao);
   }
 
 }
