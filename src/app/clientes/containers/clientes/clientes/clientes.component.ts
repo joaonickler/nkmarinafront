@@ -5,6 +5,7 @@ import { catchError, Observable, of } from 'rxjs';
 import { Cliente } from 'src/app/clientes/model/clientes';
 import { ClientesService } from 'src/app/clientes/services/clientes.service';
 
+
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.component.html',
@@ -21,16 +22,16 @@ export class ClientesComponent  implements OnInit {
   constructor(private clienteService: ClientesService,
               private router: Router,
               private route: ActivatedRoute,
-              private snackBar: MatSnackBar){
-              this.cliente = this.clienteService.list().pipe(
-              catchError(error => {
-              console.log()
-              return of([])
-            })
-          );
+              private snackBar: MatSnackBar)
+              {
+                  this.cliente = this.clienteService.list().pipe(
+                    catchError(error => {
+                      console.log()
+                      return of([])
+                    })
+                  );
+              }
 
-
-  }
 
 
   onEdit(cliente: Cliente ){
@@ -50,8 +51,8 @@ export class ClientesComponent  implements OnInit {
    }
 
 
-  onAdd(){
-    this.router.navigate(['new'], {relativeTo: this.route});
+  onAdd( ){
+    this.router.navigate(['new'],{relativeTo: this.route});
   }
 
 

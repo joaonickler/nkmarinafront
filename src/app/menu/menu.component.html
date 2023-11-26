@@ -1,30 +1,33 @@
 <div class="menu-container"  >
 <button  mat-button [matMenuTriggerFor]="aboveMenu1"   >Cadastros</button>
 <mat-menu #aboveMenu1="matMenu" class="custom-menu"  >
-  <button mat-menu-item  (click)="navigateToRoute()" >Clientes</button>
-  <button mat-menu-item  (click)="navigateToRoute()"  >Usuarios</button>
+  <button mat-menu-item  (click)="navigateToRoute('/clientes')" >Clientes</button>
+  <button mat-menu-item  >Usuarios</button>
+  <button mat-menu-item  >Configurações</button>
 
 </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="aboveMenu2">Agenda</button>
+<button mat-button [matMenuTriggerFor]="aboveMenu2">Definir</button>
 <mat-menu #aboveMenu2="matMenu" class="custom-menu" >
-  <button mat-menu-item (click)="navigateToRoute()"  >Definir</button>
+  <button mat-menu-item  >Agenda</button>
 </mat-menu>
 
 <button mat-button [matMenuTriggerFor]="aboveMenu3">Relatórios</button>
 <mat-menu #aboveMenu3="matMenu"  class="custom-menu"  >
-  <button mat-menu-item (click)="navigateToRoute()"  >Agendas</button>
-  <button mat-menu-item (click)="navigateToRoute()"  >Custos</button>
+  <button mat-menu-item   >Agendas</button>
+  <button mat-menu-item   >Custos</button>
 </mat-menu>
 
 <button mat-button [matMenuTriggerFor]="aboveMenu4">Info</button>
 <mat-menu #aboveMenu4="matMenu"  class="custom-menu"  >
-  <button mat-menu-item (click)="navigateToRoute()"  >Ajuda</button>
-  <button mat-menu-item (click)="navigateToRoute()"  >Sobre</button>
-  <button mat-menu-item (click)="navigateToRoute()"  >Sair</button>
+  <button mat-menu-item   >Ajuda</button>
+  <button mat-menu-item  >Sobre   </button>
+  <button mat-menu-item  >Sair</button>
 </mat-menu>
 
 </div>
+
+
 
 
 

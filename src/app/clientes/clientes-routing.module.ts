@@ -8,9 +8,9 @@ import { clienteResolver } from './guards/cliente.resolver';
 
 const routes: Routes = [
   {path :'', component: ClientesComponent},
-  {path :'new', component: ClientesFormComponent},
+  { path: 'new', component: ClientesFormComponent, resolve: {clie: clienteResolver}},
   {path :'edit/:id_cliente', component: ClientesFormComponent, resolve: {clie:clienteResolver}}
-  ///{path :'delete/:id', component:  ClientesFormComponent, resolve: {clie:clienteResolver}}
+  ///{path :'delete/:id_cliente', component:  ClientesFormComponent, resolve: {clie:clienteResolver}}
 ];
 
 @NgModule({

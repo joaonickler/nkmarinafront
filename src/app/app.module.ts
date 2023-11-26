@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
+import { BackgroudComponent } from './backgroud/backgroud.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     MenuComponent,
     HomeComponent,
+    BackgroudComponent,
   ],
   imports: [
     BrowserModule,

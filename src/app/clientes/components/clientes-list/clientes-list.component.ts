@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output} from '@angular/core';
 
 import { Cliente } from '../../model/clientes';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -20,7 +22,7 @@ export class ClientesListComponent {
 
   readonly displayedColumns = [ 'id','nm_cliente', 'end_cliente','tel_cliente', 'email_cliente', 'actions' ];
 
-  constructor(){ }
+  constructor(private router: Router ){ }
 
 
   ngOnInit(): void{}
@@ -36,9 +38,12 @@ export class ClientesListComponent {
 
   onDelete(cliente: Cliente){
     this.remove.emit(cliente);
+
   }
 
-
+  onBack(){
+    //this.location.back();
+  }
 
 
 

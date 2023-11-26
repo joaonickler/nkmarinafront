@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 
 
@@ -10,16 +12,14 @@ import { Component } from '@angular/core';
 })
 
 
-
 export class MenuComponent {
 
-    constructor() { }
+    constructor(private router: Router) {}
 
-
-
-    navigateToRoute(): void {
-
+    navigateToRoute(route:string) {
+      this.router.navigate([route]);
     }
+
 
 }
 

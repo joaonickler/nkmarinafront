@@ -1,13 +1,14 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import {  FormGroup, UntypedFormArray, UntypedFormBuilder, Validators } from '@angular/forms';
+import { FormGroup, UntypedFormArray, UntypedFormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 
+
 import { Cliente } from '../../../model/clientes';
 import { ClientesService } from 'src/app/clientes/services/clientes.service';
-import { Embarcacao } from '../../../model/embarcacao_cli';
 import { FormUtilsService } from 'src/app/shared/form/form-utils.service';
+import { Embarcacao } from '../../../model/embarcacao_cli';
 
 
 
@@ -67,20 +68,21 @@ export class ClientesFormComponent {
 
 
 
-  private createEmbarcacao(embarcacao : Embarcacao = {id_embarc:'', nm_embarc:'', tipo_embarc:'',nrmarinha_embarc:'',tipo:''}){
+  private createEmbarcacao(embarcacao : Embarcacao = {id_embarc:'', nm_embarc:'', nrmarinha_embarc:'' , tipo_embarc:'',}){
       return this.formBuilder.group({
         id_embarc:[embarcacao.id_embarc],
         nm_embarc:[embarcacao.nm_embarc, Validators.required],
-        tipo_embarc:[embarcacao.tipo_embarc, Validators.required],
-        nr_marinha_embarc:[embarcacao.nrmarinha_embarc, Validators.required],
-        tipo:[embarcacao.tipo]
+        nrmarinha_embarc:[embarcacao.nrmarinha_embarc, Validators.required],
+        tipo_embarc:[embarcacao.tipo_embarc, Validators.required]
       });
   }
 
 
   removeEmbarcacao(index: number ){
     const embarcacoes = this.form.get('embarcacoes') as UntypedFormArray;
+    console.log(embarcacoes);
     embarcacoes.removeAt(index);
+
 
   }
 
@@ -93,12 +95,6 @@ export class ClientesFormComponent {
       this.formUtils.validateAllFormFields(this.form);
     }
   }
-
-
-  ///isFormArrayRequired() : boolean {
-   /// const embarcacoes  = this.form.get('embarcacoes') as UntypedFormArray;
-  //  return !embarcacoes.valid && embarcacoes.hasError('required') && embarcacoes.touched;
-  //}
 
 
   onCancel(){
@@ -114,6 +110,10 @@ export class ClientesFormComponent {
   private OnError(){
     this.snackBar.open('Erro ao Salvar Cliente!', '', {duration:4000});
   }
+
+
+
+
 
 }
 
