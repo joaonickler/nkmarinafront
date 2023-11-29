@@ -24,7 +24,7 @@ export class ClientesService {
   save(record: Partial<Cliente>)
   {
     console.log(record);
-    ///return this.HttpClient.post<Cliente>(this.API,  record);
+
     if (record.id_cliente) {
       return this.update(record);
     }

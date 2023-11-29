@@ -1,1 +1,19 @@
-<p>agenda works!</p>
+<p></p>
+<mat-card>
+  <mat-toolbar color="primary">Agendamento</mat-toolbar>
+  <div class="colum-flex" >
+  <app-agenda-list *ngIf="agenda | async as agenda"
+  [agenda]="agenda"
+  (add)="onAdd()"
+  (edit)="onEdit($event)"
+  (remove)="onRemove($event)"
+  ></app-agenda-list>
+  <ng-template #loading>
+    <div class="loagind-spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+  </div>
+</mat-card>
+
+

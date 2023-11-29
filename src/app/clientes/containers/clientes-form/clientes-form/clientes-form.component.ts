@@ -4,7 +4,6 @@ import { FormGroup, UntypedFormArray, UntypedFormBuilder, Validators } from '@an
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 
-
 import { Cliente } from '../../../model/clientes';
 import { ClientesService } from 'src/app/clientes/services/clientes.service';
 import { FormUtilsService } from 'src/app/shared/form/form-utils.service';
@@ -29,9 +28,7 @@ export class ClientesFormComponent {
               private location: Location,
               private route:ActivatedRoute,
               public formUtils: FormUtilsService )
-  {
-
-  }
+  { }
 
   ngOnInit():void {
     const cli: Cliente = this.route.snapshot.data['clie'];

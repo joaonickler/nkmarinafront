@@ -1,1 +1,39 @@
-<p>agenda-form works!</p>
+<mat-card>
+  <mat-toolbar color="primary">Agendamento</mat-toolbar>
+  <mat-card-content>
+     <form [formGroup]="form">
+
+      <mat-form-field class="min-width" >
+        <input matInput placeholder="Data Agendar" formControlName="dh_solicit_agenda" #dh_solicit_agenda>
+        <mat-error *ngIf="form.get('dh_solicit_agenda')?.invalid">{{formUtils.getErrorMessage(form, "dh_solicit_agenda")}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="min-width" >
+        <mat-label>Situacao</mat-label>
+        <mat-select  matInput    formControlName="situacao_agenda"  #situacao_agenda   >
+          <mat-option [value]="1">ATIVA</mat-option>
+          <mat-option [value]="2">CANCELADA</mat-option>
+          <mat-option [value]="3">CONCLUIDA</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('situacao_agenda')?.invalid">{{formUtils.getErrorMessage(form, "situacao_agenda")}}</mat-error>
+      </mat-form-field>
+
+    <mat-toolbar color="primary">
+      <span>Embarcacao</span>
+    </mat-toolbar>
+    <p></p>
+
+
+
+
+
+    </form>
+  </mat-card-content>
+  <mat-card-actions >
+    <button  mat-raised-button color="primary" matTooltip="Pressione para Salvar"    >Salvar</button>
+    <button  mat-raised-button  matTooltip="Pressione para Cancelar"   >Cancelar</button>
+  </mat-card-actions>
+
+
+</mat-card>
+
