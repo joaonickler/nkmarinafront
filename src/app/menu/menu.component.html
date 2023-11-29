@@ -2,15 +2,10 @@
 <button  mat-button [matMenuTriggerFor]="aboveMenu1"   >Cadastros</button>
 <mat-menu #aboveMenu1="matMenu" class="custom-menu"  >
   <button mat-menu-item  (click)="navigateToRoute('/clientes')" >Clientes</button>
-  <button mat-menu-item  >Usuarios</button>
-  <button mat-menu-item  >Configurações</button>
-
+  <button mat-menu-item  (click)="navigateToRoute('/agenda')"  >Agendamento</button>
+  <button mat-menu-item  (click)="navigateToRoute('/checklist')" >CheckList</button>
 </mat-menu>
 
-<button mat-button [matMenuTriggerFor]="aboveMenu2">Definir</button>
-<mat-menu #aboveMenu2="matMenu" class="custom-menu" >
-  <button mat-menu-item  >Agenda</button>
-</mat-menu>
 
 <button mat-button [matMenuTriggerFor]="aboveMenu3">Relatórios</button>
 <mat-menu #aboveMenu3="matMenu"  class="custom-menu"  >
@@ -20,9 +15,10 @@
 
 <button mat-button [matMenuTriggerFor]="aboveMenu4">Info</button>
 <mat-menu #aboveMenu4="matMenu"  class="custom-menu"  >
-  <button mat-menu-item   >Ajuda</button>
-  <button mat-menu-item  >Sobre   </button>
-  <button mat-menu-item  >Sair</button>
+  <button mat-menu-item  >Ajuda</button>
+  <button mat-menu-item  >Sobre</button>
+  <button mat-menu-item  (click)="navigateToRoute('/usuario')" >Usuarios</button>
+
 </mat-menu>
 
 </div>

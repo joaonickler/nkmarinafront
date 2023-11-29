@@ -1,24 +1,23 @@
-// Estilos personalizados para o menu
 .menu-container {
   display: inline-block;
   position: relative;
 
   button {
-    background-color: #13568a; // Cor de fundo do botão
-    color: white; // Cor do texto do botão
-    font-size: 13px; // Tamanho da fonte do botão
-    padding: 10px 18px; // Espaçamento interno do botão
+    background-color: #13568a;
+    color: white;
+    font-size: 13px;
+    padding: 10px 18px;
   }
 
   .mat-menu-panel {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Sombra do menu
-    border-radius: 6px; // Borda arredondada do menu
+    box-shadow: 0 3px 6px rgba(202, 174, 174, 0.2);
+    border-radius: 10px;
   }
 
   .mat-menu-item {
     &:hover {
-      background-color: #13171b; // Cor de fundo ao passar o mouse sobre o item do menu
-      color: white; // Cor do texto ao passar o mouse sobre o item do menu
+      background-color: #1182f3;
+      color: white;
     }
   }
 }
