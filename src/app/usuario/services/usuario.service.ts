@@ -13,7 +13,8 @@ export class UsuarioService {
 
   constructor(private HttpClient:HttpClient  ) { }
 
-  private readonly API = 'api/usuario'
+  // private readonly API = 'api/usuario'
+  private readonly API = 'https://nkmarina-backend.onrender.com/api/usuario'
 
   list() {
     return this.HttpClient.get<Usuario[]>(this.API)

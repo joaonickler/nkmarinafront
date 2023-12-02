@@ -9,12 +9,13 @@ import {  first, tap } from 'rxjs';
 })
 export class ClientesService {
 
-  constructor(private HttpClient:HttpClient  ) { }
+  constructor(private http: HttpClient) { }
 
-    private readonly API = 'api/clientes'
+  // private readonly API = 'api/clientes'
+  private readonly API = 'https://nkmarina-backend.onrender.com/api/clientes'
 
   list() {
-    return this.HttpClient.get<Cliente[]>(this.API)
+    return this.http.get<Cliente[]>(this.API)
     .pipe(
       first(),
       tap(cliente=>console.log(cliente))
@@ -33,21 +34,21 @@ export class ClientesService {
   }
 
   loadById(id_cliente: string ){
-    return this.HttpClient.get<Cliente>(`${this.API}/${id_cliente}`);
+    return this.http.get<Cliente>(`${this.API}/${id_cliente}`);
   }
 
   private create(record: Partial<Cliente>){
-    return this.HttpClient.post<Cliente>(this.API,record);
+    return this.http.post<Cliente>(this.API,record);
   }
 
   private update(record: Partial<Cliente>){
-     return this.HttpClient.post<Cliente>(this.API,record);
+     return this.http.post<Cliente>(this.API,record);
     }
 
 
 
   remove(id_cliente: string){
-    return this.HttpClient.delete(`${this.API}/${id_cliente}`);
+    return this.http.delete(`${this.API}/${id_cliente}`);
    }
 
 }

@@ -11,7 +11,8 @@ export class AgendaService {
 
   constructor(private HttpClient:HttpClient ) { }
 
-  private readonly API = 'api/agenda'
+  // private readonly API = 'api/agenda'
+  private readonly API = 'https://nkmarina-backend.onrender.com/api/agenda'
 
   list() {
     return this.HttpClient.get<Agenda[]>(this.API)

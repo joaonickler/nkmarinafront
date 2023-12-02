@@ -10,7 +10,8 @@ export class CheckListService {
 
   constructor(private HttpClient:HttpClient  ) { }
 
-    private readonly API = 'api/checklist'
+    // private readonly API = 'api/checklist'
+    private readonly API = 'https://nkmarina-backend.onrender.com/api/checklist'
 
   list() {
     return this.HttpClient.get<CheckList[]>(this.API)

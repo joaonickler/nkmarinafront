@@ -11,7 +11,8 @@ export class EmbarcacoesService {
 
   constructor(private HttpClient:HttpClient  ) { }
 
-   private readonly API = 'api/embarcacoes'
+  //  private readonly API = 'api/embarcacoes'
+   private readonly API = 'https://nkmarina-backend.onrender.com/api/embarcacoes'
 
   list() {
     return this.HttpClient.get<Embarcacao[]>(this.API)
