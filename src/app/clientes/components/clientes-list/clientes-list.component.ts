@@ -17,12 +17,9 @@ export class ClientesListComponent {
   @Output() edit = new EventEmitter(false);
   @Output() remove = new EventEmitter(false);
 
-
-
   readonly displayedColumns = [ 'id','nm_cliente', 'end_cliente','tel_cliente', 'email_cliente',  'actions' ];
 
   constructor(private router: Router ){ }
-
 
   ngOnInit(): void{}
 
@@ -43,9 +40,6 @@ export class ClientesListComponent {
   onBack(){
 
   }
-
-
-
 
 
 }

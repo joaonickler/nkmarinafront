@@ -11,7 +11,7 @@ export class ClientesService {
 
   constructor(private http: HttpClient) { }
 
-  // private readonly API = 'api/clientes'
+  //private readonly API = 'api/clientes'
   private readonly API = 'https://nkmarina-backend.onrender.com/api/clientes'
 
   list() {

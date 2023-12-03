@@ -8,13 +8,13 @@ import {  first, tap } from 'rxjs';
 })
 export class CheckListService {
 
-  constructor(private HttpClient:HttpClient  ) { }
+  constructor(private http: HttpClient ) { }
 
-    // private readonly API = 'api/checklist'
+    ///private readonly API = 'api/checklist'
     private readonly API = 'https://nkmarina-backend.onrender.com/api/checklist'
 
   list() {
-    return this.HttpClient.get<CheckList[]>(this.API)
+    return this.http.get<CheckList[]>(this.API)
     .pipe(
       first(),
       tap(checklist=>console.log(checklist))
@@ -33,21 +33,21 @@ export class CheckListService {
   }
 
   loadById(id_check: string ){
-    return this.HttpClient.get<CheckList>(`${this.API}/${id_check}`);
+    return this.http.get<CheckList>(`${this.API}/${id_check}`);
   }
 
   private create(record: Partial<CheckList>){
-    return this.HttpClient.post<CheckList>(this.API,record);
+    return this.http.post<CheckList>(this.API,record);
   }
 
   private update(record: Partial<CheckList>){
-     return this.HttpClient.post<CheckList>(this.API,record);
+     return this.http.post<CheckList>(this.API,record);
     }
 
 
 
   remove(id_check: string){
-    return this.HttpClient.delete(`${this.API}/${id_check}`);
+    return this.http.delete(`${this.API}/${id_check}`);
    }
 
 }

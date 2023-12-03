@@ -9,13 +9,14 @@ import {  first, tap } from 'rxjs';
 })
 export class AgendaService {
 
-  constructor(private HttpClient:HttpClient ) { }
+  constructor(private http: HttpClient ) { }
 
-  // private readonly API = 'api/agenda'
-  private readonly API = 'https://nkmarina-backend.onrender.com/api/agenda'
+
+   //private readonly API = 'api/agenda'
+   private readonly API = 'https://nkmarina-backend.onrender.com/api/agenda'
 
   list() {
-    return this.HttpClient.get<Agenda[]>(this.API)
+    return this.http.get<Agenda[]>(this.API)
     .pipe(
       first(),
       tap(agenda=>console.log(agenda))
@@ -35,21 +36,21 @@ export class AgendaService {
 
 
   loadById(id_agenda: string ){
-    return this.HttpClient.get<Agenda>(`${this.API}/${id_agenda}`);
+    return this.http.get<Agenda>(`${this.API}/${id_agenda}`);
   }
 
   private create(record: Partial<Agenda>){
-    return this.HttpClient.post<Agenda>(this.API,record);
+    return this.http.post<Agenda>(this.API,record);
   }
 
   private update(record: Partial<Agenda>){
-     return this.HttpClient.post<Agenda>(this.API,record);
+     return this.http.post<Agenda>(this.API,record);
     }
 
 
 
   remove(id_cliente: string){
-    return this.HttpClient.delete(`${this.API}/${id_cliente}`);
+    return this.http.delete(`${this.API}/${id_cliente}`);
    }
 
 
