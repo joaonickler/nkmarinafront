@@ -14,6 +14,18 @@
     <mat-cell *matCellDef="let age">{{age.dh_solicit_agenda}}</mat-cell>
   </ng-container>
 
+
+  <ng-container matColumnDef="id_cliente">
+    <mat-header-cell *matHeaderCellDef>Cliente</mat-header-cell>
+    <mat-cell *matCellDef="let age">{{age.clientes['id_cliente']}}+"-"+{{age.clientes['nm_cliente']}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="id_cliente">
+    <mat-header-cell *matHeaderCellDef>Embarcação</mat-header-cell>
+    <mat-cell *matCellDef="let age">{{age.embarcacoes['id_embarc']}}+"-"+{{age.embarcacoes['nm_embarc']}}</mat-cell>
+  </ng-container>
+
+
   <ng-container matColumnDef="situacaoAgenda">
     <mat-header-cell *matHeaderCellDef>Situação</mat-header-cell>
     <mat-cell *matCellDef="let age">{{age.situacaoAgenda}}</mat-cell>
