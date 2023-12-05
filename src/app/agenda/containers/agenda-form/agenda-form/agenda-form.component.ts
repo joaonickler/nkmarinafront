@@ -39,7 +39,7 @@ export class AgendaFormComponent {
     this.clienteService.loadById(age.cliente.id_cliente)
       .subscribe((cliente: any) => {
           this.clientes = [cliente];
-          this.embarcacoes = cliente.embarcacao || [];
+          this.embarcacoes = cliente.embarcacoes || [];
       });
 
 
