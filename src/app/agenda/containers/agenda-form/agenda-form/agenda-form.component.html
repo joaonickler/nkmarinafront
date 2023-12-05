@@ -19,13 +19,42 @@
       </mat-form-field>
 
     <mat-toolbar color="primary">
-      <span>Embarcacao</span>
+      <span>Cliente</span>
+      <button mat-icon-button color="accent" >
+      </button>
     </mat-toolbar>
-    <p></p>
+    <table  style="width:50%"  >
+      <tr>
+        <td>
+          <mat-form-field class="full-width" >
+            <mat-label>Cliente</mat-label>
+            <mat-select  matInput    formControlName="nm_cliente"  >
+              <mat-option [value]="1">Nome1</mat-option>
+              <mat-option [value]="2">Nome2</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
 
 
-
-
+    <mat-toolbar color="primary">
+      <span>Embarcação</span>
+   </mat-toolbar>
+   <table  style="width:50%"  >
+    <tr>
+      <td>
+        <mat-form-field class="full-width" >
+          <mat-label>Embarcação</mat-label>
+          <mat-select  matInput    formControlName="nm_embarc"  >
+            <mat-option [value]="1">Nome1</mat-option>
+            <mat-option [value]="2">Nome2</mat-option>
+          </mat-select>
+          <mat-error></mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
 
     </form>
   </mat-card-content>

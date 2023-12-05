@@ -35,8 +35,8 @@ export class AgendaFormComponent {
         dh_cadastro_agenda: [age.dh_cadastro_agenda],
         dh_solicit_agenda: [age.dh_solicit_agenda, Validators.required ],
         situacao_agenda : [age.situacao_agenda, Validators.required ],
-        embarcacoes: this.formBuilder.array([], Validators.required),
-        clientes : this.formBuilder.array([], Validators.required)
+        embarcacao: this.formBuilder.array([], Validators.required),
+        cliente : this.formBuilder.array([], Validators.required)
     })
   }
 

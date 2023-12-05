@@ -1,4 +1,4 @@
-export interface Clientes {
+export interface Cliente {
   id_cliente:string;
   nm_cliente:string;
   end_cliente:string;

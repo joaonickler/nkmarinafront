@@ -19,7 +19,7 @@ import { AgendaService } from '../service/agenda.service';
     if (route.params && route.params['id_agenda']) {
             return this.service.loadById(route.params['id_agenda']);
     }
-  return of(...arguments,{id_agenda:'', dh_cadastro_agenda:'',  dh_solicit_agenda:'', situacao_agenda:'', embarcacoes: [] });
+  return of(...arguments,{id_agenda:'', dh_cadastro_agenda:'',  dh_solicit_agenda:'', situacao_agenda:'', cliente:[], embarcacao:[]});
 
   }
 

@@ -4,25 +4,19 @@
    <mat-cell *matCellDef="let age">{{age.id_agenda}}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="dh_cadastro_agenda">
-    <mat-header-cell *matHeaderCellDef >Data Cadastro</mat-header-cell>
-    <mat-cell *matCellDef="let age"  >{{age.dh_cadastro_agenda}}</mat-cell>
-  </ng-container>
-
   <ng-container matColumnDef="dh_solicit_agenda">
-    <mat-header-cell *matHeaderCellDef>Data Solcitacao</mat-header-cell>
-    <mat-cell *matCellDef="let age">{{age.dh_solicit_agenda}}</mat-cell>
+    <mat-header-cell     *matHeaderCellDef>Solicitação</mat-header-cell>
+    <mat-cell  class="column-reg"  *matCellDef="let age">{{age.dh_solicit_agenda}}</mat-cell>
   </ng-container>
 
-
-  <ng-container matColumnDef="id_cliente">
-    <mat-header-cell *matHeaderCellDef>Cliente</mat-header-cell>
-    <mat-cell *matCellDef="let age">{{age.clientes['id_cliente']}}+"-"+{{age.clientes['nm_cliente']}}</mat-cell>
+  <ng-container matColumnDef="cliente">
+    <mat-header-cell *matHeaderCellDef  >Cliente</mat-header-cell>
+    <mat-cell     *matCellDef="let age">{{age.cliente.nm_cliente}}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="id_cliente">
-    <mat-header-cell *matHeaderCellDef>Embarcação</mat-header-cell>
-    <mat-cell *matCellDef="let age">{{age.embarcacoes['id_embarc']}}+"-"+{{age.embarcacoes['nm_embarc']}}</mat-cell>
+  <ng-container matColumnDef="embarcacao">
+    <mat-header-cell *matHeaderCellDef>Embarcacao</mat-header-cell>
+    <mat-cell *matCellDef="let age">{{age.embarcacao.nm_embarc}}</mat-cell>
   </ng-container>
 
 
