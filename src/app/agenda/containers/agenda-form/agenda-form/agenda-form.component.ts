@@ -22,8 +22,6 @@ export class AgendaFormComponent {
   embarcacoes: any[] = [];
 
 
-
-
   constructor(  private formBuilder: UntypedFormBuilder,
                 private service: AgendaService,
                 private clienteService: ClientesService,
@@ -48,10 +46,33 @@ export class AgendaFormComponent {
         id_agenda: [age.id_agenda],
         dh_solicit_agenda: [age.dh_solicit_agenda, Validators.required ],
         situacao_agenda : [age.situacao_agenda, Validators.required ],
-        cliente : this.formBuilder.array([age.cliente , Validators.required]),
+        cliente : this.formBuilder.array([age.cliente, Validators.required]),
         embarcacao: this.formBuilder.array([age.embarcacao ,Validators.required])
     })
 
+  }
+
+
+  onChangeCliente():void{
+    this.clienteService.loadById(this.form.get('cliente')?.getRawValue())
+      .subscribe((cliente:any) => {
+        this.embarcacoes = cliente.embarcacoes || [];
+      })
+  }
+
+
+  onCancel(){
+    this.location.back();
+  }
+
+
+  private OnSucess(){
+    this.snackBar.open('Agenda Salva com Sucesso!', '', {duration:4000});
+    this.onCancel();
+  }
+
+  private OnError(){
+    this.snackBar.open('Erro ao Salvar Agenda!', '', {duration:4000});
   }
 
 

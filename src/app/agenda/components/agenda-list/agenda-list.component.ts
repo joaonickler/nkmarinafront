@@ -15,7 +15,7 @@ export class AgendaListComponent {
   @Output() edit = new EventEmitter(false);
   @Output() remove = new EventEmitter(false);
 
-  readonly displayedColumns = [ 'id_agenda', 'dh_solicit_agenda','situacaoAgenda', 'cliente', 'embarcacao', 'actions' ];
+  readonly displayedColumns = [ 'id_agenda', 'dh_solicit_agenda','situacaoAgenda', 'cliente',  'actions' ];
 
 
   constructor(private router: Router ){ }

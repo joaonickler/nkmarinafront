@@ -28,7 +28,7 @@
         <td>
           <mat-form-field  class="full-width" >
             <mat-label>Cliente</mat-label>
-            <mat-select formControlName="cliente" >
+            <mat-select formControlName="cliente" (change)="onChangeCliente()"  #cliente   >
               <mat-option *ngFor="let cliente of clientes" [value]="cliente.id_cliente">
                 {{ cliente.nm_cliente }}
               </mat-option>
@@ -37,8 +37,6 @@
         </td>
       </tr>
     </table>
-
-
     <mat-toolbar color="primary">
       <span>Embarcação</span>
    </mat-toolbar>
@@ -47,7 +45,7 @@
       <td>
         <mat-form-field  class="full-width" >
           <mat-label>Embarcações</mat-label>
-          <mat-select formControlName="embarcacao">
+          <mat-select formControlName="embarcacao"   #embarcacao  >
             <mat-option *ngFor="let embarc of embarcacoes" [value]="embarc.id_embarc">
               {{ embarc.nm_embarc }}
             </mat-option>
@@ -56,12 +54,11 @@
       </td>
     </tr>
   </table>
-
     </form>
   </mat-card-content>
   <mat-card-actions >
-    <button  mat-raised-button color="primary" matTooltip="Pressione para Salvar"    >Salvar</button>
-    <button  mat-raised-button  matTooltip="Pressione para Cancelar"   >Cancelar</button>
+    <button  mat-raised-button color="primary" matTooltip="Pressione para Salvar"     >Salvar</button>
+    <button  mat-raised-button  matTooltip="Pressione para Cancelar"   (click)="onCancel()"   >Cancelar</button>
   </mat-card-actions>
 
 

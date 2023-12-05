@@ -7,15 +7,14 @@
   <ng-container matColumnDef="embarcacao">
     <mat-header-cell *matHeaderCellDef >Embacação</mat-header-cell>
     <mat-cell *matCellDef="let ch"  >{{ch.embarcacao.nm_embarc}}</mat-cell>
+    <mat-cell *matCellDef="let ch">{{ch.embarcacao.id_embarc}}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="id_embarc">
-    <mat-cell *matCellDef="let ch"  >{{ch.embarcacao.id_embarc}}</mat-cell>
-  </ng-container>
+
 
   <ng-container matColumnDef="situacao_check">
     <mat-header-cell *matHeaderCellDef>Situacao</mat-header-cell>
-    <mat-cell *matCellDef="let ch" [ngSwitch]="ch.situacao_check"           >
+    <mat-cell *matCellDef="let ch" [ngSwitch]="ch.situacao_check">{{ch.situacao_check}}
       <span  [ngStyle]="{'color': 'red'}"  *ngSwitchCase="1">Pendente</span>
       <span [ngStyle]="{'color': 'green'}" *ngSwitchCase="2">Executado</span>
     </mat-cell>
@@ -28,9 +27,6 @@
 
   <ng-container matColumnDef="actions" >
     <mat-header-cell *matHeaderCellDef class="action-column-header">
-    <button mat-mini-fab  color="primary" aria-label="Adicionar" (click)="onAdd()" >
-        <mat-icon  >plus_one</mat-icon>
-    </button>
     <button mat-mini-fab  color="primary" aria-label="Voltar" (click)="onBack()"    >
       <mat-icon>home</mat-icon>
   </button>
@@ -40,9 +36,7 @@
     <button mat-icon-button color="primary" arial-label="Editar" (click)="onEdit(ch)"  >
       <mat-icon>edit</mat-icon>
     </button>
-    <button mat-icon-button color="warn"  (click)="onDelete(ch)"     >
-      <mat-icon arial-label="Remover"  >delete</mat-icon>
-    </button>
+
   </mat-header-cell>
   </ng-container>
 

@@ -2,7 +2,9 @@
 <mat-card>
   <mat-toolbar color="primary">Check List Embarcação</mat-toolbar>
   <div class="colum-flex">
-    <app-checklist-list *ngIf="checklist |async as checklist" [checklist]="checklist" (add)="onAdd()" (edit)="onEdit($event)" (remove)="onRemove($event)"></app-checklist-list>
+    <app-checklist-list *ngIf="checklist |async as checklist" [checklist]="checklist"
+     (edit)="onEdit($event)"    >
+    </app-checklist-list>
   <ng-template #loading>
     <div class="loagind-spinner">
       <mat-spinner></mat-spinner>
