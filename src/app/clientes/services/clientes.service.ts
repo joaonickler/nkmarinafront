@@ -2,7 +2,7 @@ import { Cliente } from './../model/clientes';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import {  first, tap } from 'rxjs';
+import { first, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +50,7 @@ export class ClientesService {
   remove(id_cliente: string){
     return this.http.delete(`${this.API}/${id_cliente}`);
    }
+
 
 }
 

@@ -3,4 +3,7 @@ export interface CheckList {
   tipo_check:string;
   situacao_check:string;
   tipoCheck:string;
+  embarcacao: {id_embarc: string,
+              nm_embarc:string };
+
 }

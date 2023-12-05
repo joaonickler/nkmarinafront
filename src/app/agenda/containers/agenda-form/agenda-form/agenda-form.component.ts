@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Agenda } from 'src/app/agenda/model/agenda';
 import { AgendaService } from 'src/app/agenda/service/agenda.service';
 import { FormUtilsService } from 'src/app/shared/form/form-utils.service';
+import { ClientesService } from 'src/app/clientes/services/clientes.service';
 
 
 @Component({
@@ -17,45 +18,62 @@ import { FormUtilsService } from 'src/app/shared/form/form-utils.service';
 export class AgendaFormComponent {
 
   form!: FormGroup;
+  clientes: any[] = [];
+  embarcacoes: any[] = [];
+
+
 
 
   constructor(  private formBuilder: UntypedFormBuilder,
                 private service: AgendaService,
+                private clienteService: ClientesService,
                 private snackBar: MatSnackBar,
                 private location: Location,
                 private route:ActivatedRoute,
                 public formUtils: FormUtilsService
-                ){
-  }
+                ){}
 
   ngOnInit():void{
     const age: Agenda = this.route.snapshot.data['age'];
+
+    this.clienteService.loadById(age.cliente.id_cliente)
+      .subscribe((cliente: any) => {
+          this.clientes = [cliente];
+          this.embarcacoes = cliente.embarcacao || [];
+      });
+
+
+
     this.form = this.formBuilder.group({
         id_agenda: [age.id_agenda],
-        dh_cadastro_agenda: [age.dh_cadastro_agenda],
         dh_solicit_agenda: [age.dh_solicit_agenda, Validators.required ],
         situacao_agenda : [age.situacao_agenda, Validators.required ],
-        embarcacao: this.formBuilder.array([], Validators.required),
-        cliente : this.formBuilder.array([], Validators.required)
+        cliente : this.formBuilder.array([age.cliente , Validators.required]),
+        embarcacao: this.formBuilder.array([age.embarcacao ,Validators.required])
     })
+
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

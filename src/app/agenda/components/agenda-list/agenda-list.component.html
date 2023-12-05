@@ -14,9 +14,17 @@
     <mat-cell     *matCellDef="let age">{{age.cliente.nm_cliente}}</mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="id_cliente">
+    <mat-cell     *matCellDef="let age">{{age.cliente.id_cliente}}</mat-cell>
+  </ng-container>
+
   <ng-container matColumnDef="embarcacao">
     <mat-header-cell *matHeaderCellDef>Embarcacao</mat-header-cell>
     <mat-cell *matCellDef="let age">{{age.embarcacao.nm_embarc}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="id_embarc">
+    <mat-cell     *matCellDef="let age">{{age.cliente.id_embarc}}</mat-cell>
   </ng-container>
 
 

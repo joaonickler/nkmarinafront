@@ -16,7 +16,7 @@ export class ChecklistListComponent {
   @Output() edit = new EventEmitter(false);
   @Output() remove = new EventEmitter(false);
 
-  readonly displayedColumns = [ 'id_check', 'situacao_check','tipoCheck',   'actions' ];
+  readonly displayedColumns = [ 'id_check','tipoCheck' ,'embarcacao','situacao_check','actions' ];
 
   constructor(private router: Router ){ }
 

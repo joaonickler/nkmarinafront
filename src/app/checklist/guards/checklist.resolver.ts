@@ -20,7 +20,7 @@ import { CheckListService } from '../service/checklist.service';
     if (route.params && route.params['id_check']) {
             return this.service.loadById(route.params['id_check']);
     }
-  return of(...arguments,{id_check:'', tipo_check:'',  situacao_check:'', tipoCheck:'' });
+  return of(...arguments,{id_check:'', tipo_check:'',  situacao_check:'', tipoCheck:'', embarcacao:'' });
 
   }
 

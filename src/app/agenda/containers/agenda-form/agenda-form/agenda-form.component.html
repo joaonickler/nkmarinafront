@@ -26,11 +26,12 @@
     <table  style="width:50%"  >
       <tr>
         <td>
-          <mat-form-field class="full-width" >
+          <mat-form-field  class="full-width" >
             <mat-label>Cliente</mat-label>
-            <mat-select  matInput    formControlName="nm_cliente"  >
-              <mat-option [value]="1">Nome1</mat-option>
-              <mat-option [value]="2">Nome2</mat-option>
+            <mat-select formControlName="cliente" >
+              <mat-option *ngFor="let cliente of clientes" [value]="cliente.id_cliente">
+                {{ cliente.nm_cliente }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
         </td>
@@ -44,13 +45,13 @@
    <table  style="width:50%"  >
     <tr>
       <td>
-        <mat-form-field class="full-width" >
-          <mat-label>Embarcação</mat-label>
-          <mat-select  matInput    formControlName="nm_embarc"  >
-            <mat-option [value]="1">Nome1</mat-option>
-            <mat-option [value]="2">Nome2</mat-option>
+        <mat-form-field  class="full-width" >
+          <mat-label>Embarcações</mat-label>
+          <mat-select formControlName="embarcacao">
+            <mat-option *ngFor="let embarc of embarcacoes" [value]="embarc.id_embarc">
+              {{ embarc.nm_embarc }}
+            </mat-option>
           </mat-select>
-          <mat-error></mat-error>
         </mat-form-field>
       </td>
     </tr>
