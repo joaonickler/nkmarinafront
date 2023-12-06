@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { SobreComponent } from './sobre/sobre/sobre.component';
+import { MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SobreComponent } from './sobre/sobre/sobre.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     HttpClientModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDatepickerModule
 
   ],
   providers: [],

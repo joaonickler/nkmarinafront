@@ -11,6 +11,7 @@ import { ClientesService } from 'src/app/clientes/services/clientes.service';
 import { Cliente } from 'src/app/clientes/model/clientes';
 
 
+
 @Component({
   selector: 'app-agenda-form',
   templateUrl: './agenda-form.component.html',
@@ -21,7 +22,6 @@ export class AgendaFormComponent {
   form!: FormGroup;
   clientes: any[] = [];
   embarcacoes: any[] = [];
-
 
   constructor(  private formBuilder: UntypedFormBuilder,
                 private service: AgendaService,
@@ -37,23 +37,25 @@ export class AgendaFormComponent {
 
     this.form = this.formBuilder.group({
         id_agenda:          [age.id_agenda],
-        dh_solicit_agenda:  [age.dh_solicit_agenda, Validators.required ],
-        situacao_agenda:    [age.situacao_agenda, Validators.required ],
-        cliente :           this.formBuilder.array([age.cliente, Validators.required]),
-        embarcacao:         this.formBuilder.array([age.embarcacao ,Validators.required])
+        dh_solicit_agenda:  [age.dh_solicit_agenda,Validators.required],
+        situacao_agenda:    [age.situacao_agenda,Validators.required ],
+        cliente :           [age.cliente, Validators.required],
+        embarcacao:         [age.embarcacao ,Validators.required]
   })
+  console.log("Campo Data: ", this.formBuilder.group({ dh_solicit_agenda: [age.dh_solicit_agenda] }).get('dh_solicit_agenda')?.value);
 
-    if (age.cliente  &&  age.cliente.id_cliente ){
-    this.clienteService.loadById(age.cliente.id_cliente)
+  if (age.cliente  &&  age.cliente.id_cliente ){
+
+      this.clienteService.loadById(age.cliente.id_cliente)
         .subscribe((cliente: any) => {
             this.clientes = [cliente];
             this.embarcacoes = cliente.embarcacoes || [];
       });
-    } else {
+  } else {
       this.clienteService.list()
         .subscribe((listaclientes:any) => {
-          this.clientes = listaclientes;
-        })
+         this.clientes = listaclientes;
+       })
       }
   }
 
@@ -65,6 +67,16 @@ export class AgendaFormComponent {
 
   onSubmit() {
     if (this.form.valid) {
+
+      this.form.value.dh_solicit_agenda = new Date(Date.parse(this.form.value.dh_solicit_agenda)).toLocaleString("pt-br", {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+      }).replace(",","")  ;
+
+
       this.service.save(this.form.value)
         .subscribe(result => this.OnSucess(), error => this.OnError());
     } else {

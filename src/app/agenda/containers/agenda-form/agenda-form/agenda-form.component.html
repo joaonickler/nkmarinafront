@@ -4,10 +4,11 @@
      <form [formGroup]="form">
 
       <mat-form-field class="min-width" >
-        <input matInput placeholder="Data da Agenda" formControlName="dh_solicit_agenda" #dh_solicit_agenda>
-        <mat-hint align="end">{{dh_solicit_agenda.value || 0}} / 20</mat-hint>
+        <mat-label>Data Agenda</mat-label>
+        <input matInput  type="datetime-local"  placeholder="Data da Agenda" formControlName="dh_solicit_agenda" #dh_solicit_agenda>
         <mat-error *ngIf="form.get('dh_solicit_agenda')?.invalid">{{formUtils.getErrorMessage(form, "dh_solicit_agenda")}}</mat-error>
       </mat-form-field>
+
 
       <mat-form-field class="min-width" >
         <mat-label>Situacao</mat-label>
@@ -30,7 +31,7 @@
       <div class="form-row">
           <mat-form-field  class="full-width" >
             <mat-label>Nome do Cliente</mat-label>
-            <mat-select formArrayName="cliente" (selectionChange)="onChangeCliente(cliente)"  #cliente   >
+            <mat-select formControlName="cliente" (selectionChange)="onChangeCliente(cliente)"  #cliente   >
               <mat-option *ngFor="let cliente of clientes" [value]="cliente">
                 {{cliente.nm_cliente}}
               </mat-option>
@@ -41,7 +42,7 @@
        <div class="form-row">
           <mat-form-field  class="full-width" >
             <mat-label>Embarcações do Cliente</mat-label>
-            <mat-select formArrayName="embarcacao"  #embarcacao  >
+            <mat-select formControlName="embarcacao"  #embarcacao  >
               <mat-option *ngFor="let embarc of embarcacoes" [value]="embarc">
                 {{embarc.nm_embarc}}
               </mat-option>

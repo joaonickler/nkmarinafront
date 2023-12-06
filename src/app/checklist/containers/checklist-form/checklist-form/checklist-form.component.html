@@ -17,7 +17,7 @@
 
       <mat-form-field class="full-width" >
         <mat-label>Tipo</mat-label>
-        <mat-select  matInput    formControlName="tipo_check"  >
+        <mat-select  [disabled]="isSelectDisabled"    formControlName="tipo_check"     >
           <mat-option [value]="1">GASOLINA</mat-option>
           <mat-option [value]="2">SEGURANÇA</mat-option>
           <mat-option [value]="3">MOTOR</mat-option>

@@ -22,22 +22,15 @@ export class ChecklistListComponent {
 
   ngOnInit(): void{}
 
-  onAdd(){
-    this.add.emit(true);
-  }
+
 
   onEdit(checklist: CheckList){
     this.edit.emit(checklist);
   }
 
-  onDelete(checklist: CheckList){
-    this.remove.emit(checklist);
 
-  }
 
-  onBack(){
 
-  }
 
 
 

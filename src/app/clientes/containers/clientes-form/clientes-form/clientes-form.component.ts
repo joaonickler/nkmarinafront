@@ -57,12 +57,10 @@ export class ClientesFormComponent {
     return (<UntypedFormArray>this.form.get('embarcacoes')).controls;
   }
 
-  // Nova embarcacao
   addNewEmbarcacao(){
     const embarcacoes = this.form.get('embarcacoes') as UntypedFormArray;
     embarcacoes.push(this.createEmbarcacao());
   }
-
 
 
   private createEmbarcacao(embarcacao : Embarcacao = {id_embarc:'', nm_embarc:'', nrmarinha_embarc:'' , tipo_embarc:'',}){

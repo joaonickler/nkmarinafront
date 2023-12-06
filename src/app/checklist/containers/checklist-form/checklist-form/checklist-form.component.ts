@@ -16,6 +16,7 @@ import { FormUtilsService } from 'src/app/shared/form/form-utils.service';
 export class ChecklistFormComponent {
 
   form!: FormGroup;
+  isSelectDisabled = true;
 
   constructor(
               private formBuilder: UntypedFormBuilder,
