@@ -5,33 +5,34 @@ import { catchError, Observable, of } from 'rxjs';
 import { Agenda } from 'src/app/agenda/model/agenda';
 import { AgendaService } from 'src/app/agenda/service/agenda.service';
 
+
+
 @Component({
   selector: 'app-agenda',
   templateUrl: './agenda.component.html',
   styleUrls: ['./agenda.component.scss']
 })
-
 export class AgendaComponent  implements OnInit {
-
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
 
-
   agenda : Observable<Agenda[]>;
 
+
   constructor(private agendaService: AgendaService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private snackBar: MatSnackBar)
-    {
-        this.agenda = this.agendaService.list().pipe(
-          catchError(error => {
-            console.log()
-            return of([])
-          })
-        );
+              private router: Router,
+              private route: ActivatedRoute,
+              private snackBar: MatSnackBar)
+             {
+                  this.agenda = this.agendaService.list().pipe(
+                  catchError(error => {
+                  console.log()
+                  return of([])
+              })
+            );
     }
+
 
     onEdit(agenda: Agenda ){
       this.router.navigate(['edit', agenda.id_agenda], {relativeTo:this.route});
@@ -50,7 +51,7 @@ export class AgendaComponent  implements OnInit {
      }
 
      onAdd( ){
-      this.router.navigate(['new'],{relativeTo: this.route});
+      this.router.navigate(['new'],{relativeTo:this.route});
     }
 
 

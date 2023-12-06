@@ -8,6 +8,7 @@ import { Agenda } from 'src/app/agenda/model/agenda';
 import { AgendaService } from 'src/app/agenda/service/agenda.service';
 import { FormUtilsService } from 'src/app/shared/form/form-utils.service';
 import { ClientesService } from 'src/app/clientes/services/clientes.service';
+import { Cliente } from 'src/app/clientes/model/clientes';
 
 
 @Component({
@@ -34,37 +35,46 @@ export class AgendaFormComponent {
   ngOnInit():void{
     const age: Agenda = this.route.snapshot.data['age'];
 
-    this.clienteService.loadById(age.cliente.id_cliente)
-      .subscribe((cliente: any) => {
-          this.clientes = [cliente];
-          this.embarcacoes = cliente.embarcacoes || [];
-      });
-
-
-
     this.form = this.formBuilder.group({
-        id_agenda: [age.id_agenda],
-        dh_solicit_agenda: [age.dh_solicit_agenda, Validators.required ],
-        situacao_agenda : [age.situacao_agenda, Validators.required ],
-        cliente : this.formBuilder.array([age.cliente, Validators.required]),
-        embarcacao: this.formBuilder.array([age.embarcacao ,Validators.required])
-    })
+        id_agenda:          [age.id_agenda],
+        dh_solicit_agenda:  [age.dh_solicit_agenda, Validators.required ],
+        situacao_agenda:    [age.situacao_agenda, Validators.required ],
+        cliente :           this.formBuilder.array([age.cliente, Validators.required]),
+        embarcacao:         this.formBuilder.array([age.embarcacao ,Validators.required])
+  })
 
+    if (age.cliente  &&  age.cliente.id_cliente ){
+    this.clienteService.loadById(age.cliente.id_cliente)
+        .subscribe((cliente: any) => {
+            this.clientes = [cliente];
+            this.embarcacoes = cliente.embarcacoes || [];
+      });
+    } else {
+      this.clienteService.list()
+        .subscribe((listaclientes:any) => {
+          this.clientes = listaclientes;
+        })
+      }
   }
 
-
-  onChangeCliente():void{
-    this.clienteService.loadById(this.form.get('cliente')?.getRawValue())
-      .subscribe((cliente:any) => {
-        this.embarcacoes = cliente.embarcacoes || [];
-      })
+  onChangeCliente(cliente: any ):void{
+    const clienteControl  = this.form.get('cliente');
+    console.log( cliente  )  ;
+    this.embarcacoes = (cliente.value as Cliente).embarcacoes || [];
   }
 
+  onSubmit() {
+    if (this.form.valid) {
+      this.service.save(this.form.value)
+        .subscribe(result => this.OnSucess(), error => this.OnError());
+    } else {
+      this.formUtils.validateAllFormFields(this.form);
+    }
+  }
 
   onCancel(){
     this.location.back();
   }
-
 
   private OnSucess(){
     this.snackBar.open('Agenda Salva com Sucesso!', '', {duration:4000});

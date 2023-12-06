@@ -1,6 +1,6 @@
 <p></p>
 <mat-card>
-  <mat-toolbar color="primary">Agendamento</mat-toolbar>
+  <mat-toolbar color="primary">Agendamentos</mat-toolbar>
   <div class="colum-flex" >
   <app-agenda-list *ngIf="agenda | async as agenda"
   [agenda]="agenda"
@@ -8,11 +8,6 @@
   (edit)="onEdit($event)"
   (remove)="onRemove($event)"
   ></app-agenda-list>
-  <ng-template #loading>
-    <div class="loagind-spinner">
-      <mat-spinner></mat-spinner>
-    </div>
-  </ng-template>
   </div>
 </mat-card>
 

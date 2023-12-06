@@ -37,23 +37,6 @@ export class ChecklistComponent  implements OnInit {
   }
 
 
-  onRemove(checklist: CheckList){
-    this.checklistService.remove(checklist.id_check.toString()).subscribe(
-     next,() => {
-       this.snackBar.open('Removido Com Sucesso!', 'X',{
-         duration: 5000,
-         verticalPosition: 'top',
-         horizontalPosition: 'center'
-       })}
-    );
-    this.refresh();
-   }
-
-
-  //onAdd( ){
-  //  this.router.navigate(['new'],{relativeTo: this.route});
-  //}
-
 
   refresh(){
     window.location.reload();

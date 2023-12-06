@@ -6,11 +6,9 @@
 
   <ng-container matColumnDef="embarcacao">
     <mat-header-cell *matHeaderCellDef >Embacação</mat-header-cell>
-    <mat-cell *matCellDef="let ch"  >{{ch.embarcacao.nm_embarc}}</mat-cell>
+    <mat-cell *matCellDef="let ch" >{{ch.embarcacao.nm_embarc}}</mat-cell>
     <mat-cell *matCellDef="let ch">{{ch.embarcacao.id_embarc}}</mat-cell>
   </ng-container>
-
-
 
   <ng-container matColumnDef="situacao_check">
     <mat-header-cell *matHeaderCellDef>Situacao</mat-header-cell>

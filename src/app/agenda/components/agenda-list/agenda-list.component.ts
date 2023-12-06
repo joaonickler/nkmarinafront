@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AgendaListComponent {
   [x: string]: any;
+
   @Input() agenda: Agenda[] = [];
   @Output() add = new EventEmitter(false);
   @Output() edit = new EventEmitter(false);

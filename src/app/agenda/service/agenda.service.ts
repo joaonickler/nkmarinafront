@@ -1,7 +1,6 @@
 import { Agenda } from './../model/agenda';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import {  first, tap } from 'rxjs';
 
 @Injectable({
@@ -11,9 +10,8 @@ export class AgendaService {
 
   constructor(private http: HttpClient ) { }
 
-
-   //private readonly API = 'api/agenda'
-   private readonly API = 'https://nkmarina-backend.onrender.com/api/agenda'
+  //private readonly API = 'api/agenda'
+  private readonly API = 'https://nkmarina-backend.onrender.com/api/agenda'
 
   list() {
     return this.http.get<Agenda[]>(this.API)
