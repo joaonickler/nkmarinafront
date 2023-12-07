@@ -16,3 +16,9 @@
 .column-reg{
   text-align: center;
 }
+
+
+.table-container {
+  max-height: 100px; /* Ajuste conforme necessário */
+  overflow-y: auto;
+}

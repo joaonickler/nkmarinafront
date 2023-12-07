@@ -37,15 +37,9 @@ export class ChecklistComponent  implements OnInit {
   }
 
 
-
   refresh(){
     window.location.reload();
   }
-
-
-
-
-
 
 }
 

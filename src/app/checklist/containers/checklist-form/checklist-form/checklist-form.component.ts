@@ -16,7 +16,7 @@ import { FormUtilsService } from 'src/app/shared/form/form-utils.service';
 export class ChecklistFormComponent {
 
   form!: FormGroup;
-  isSelectDisabled = true;
+  embarcacoes: any[] = [];
 
   constructor(
               private formBuilder: UntypedFormBuilder,
@@ -27,19 +27,16 @@ export class ChecklistFormComponent {
               public formUtils: FormUtilsService
   ){}
 
-
-
   ngOnInit():void{
     const checklist: CheckList = this.route.snapshot.data['check'];
     this.form = this.formBuilder.group({
               id_check: [checklist.id_check],
               tipo_check: [checklist.tipo_check, Validators.required],
               situacao_check: [checklist.situacao_check, Validators.required],
-              tipoCheck:[checklist.tipoCheck, Validators.required]
+              tipoCheck:[checklist.tipoCheck, Validators.required],
+              embarcacao:[checklist.embarcacao]
     });
   }
-
-
 
 
   onSubmit() {

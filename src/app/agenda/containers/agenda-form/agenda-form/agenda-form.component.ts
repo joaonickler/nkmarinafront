@@ -42,7 +42,7 @@ export class AgendaFormComponent {
         cliente :           [age.cliente, Validators.required],
         embarcacao:         [age.embarcacao ,Validators.required]
   })
-  console.log("Campo Data: ", this.formBuilder.group({ dh_solicit_agenda: [age.dh_solicit_agenda] }).get('dh_solicit_agenda')?.value);
+  //console.log("Campo Data: ", this.formBuilder.group({ dh_solicit_agenda: [age.dh_solicit_agenda] }).get('dh_solicit_agenda')?.value);
 
   if (age.cliente  &&  age.cliente.id_cliente ){
 
@@ -90,6 +90,7 @@ export class AgendaFormComponent {
 
   private OnSucess(){
     this.snackBar.open('Agenda Salva com Sucesso!', '', {duration:4000});
+    this.snackBar.open('Check List foram criados!', '' ,{duration:4000});
     this.onCancel();
   }
 

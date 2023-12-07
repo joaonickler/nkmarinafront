@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, Output} from '@angular/core';
 import { Router } from '@angular/router';
 import { CheckList } from '../../model/checklist';
 
+
+
 @Component({
   selector: 'app-checklist-list',
   templateUrl: './checklist-list.component.html',
